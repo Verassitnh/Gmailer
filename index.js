@@ -1,16 +1,26 @@
-var nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
+const fs = require('fs')
 
-var transporter = nodemailer.createTransport({
+const getPassword = () => {
+	return fs.readFileSync('./pass.txt', 'utf-8')
+}
+
+const getList = () => {
+	return JSON.stringify(fs.readFileSync('./email-list.json', 'utf-8'))
+}
+
+const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'jackson.mooring@gmail.com',
-    pass: 'nvwaznipfnakjcob'
+    pass: getPassword()
   }
 });
 
-var mailOptions = {
+const mailOptions = {
   from: '"Jackson Mooring" <me@jacksonmooring.com>',
-  to: 'dudef@hotmail.com',
+  to: 'me@jacksonmooring@gmail.com',
+  bcc: JSON.parse(getList()),
   subject: 'Sending Email using Node.js',
   text: 'That was easy!'
 };
