@@ -3,12 +3,13 @@ const fs = require('fs')
 let y = 0
 const emails = JSON.parse(fs.readFileSync('./email-list.json', 'utf-8'))
 const pass = fs.readFileSync('./pass.txt', 'utf-8')
+const config = JSON.parse(fs.readFileSync('./config.json'))
 
 
 const transporter = nodemailer.createTransport({
 	service: 'gmail',
 	auth: {
-		user: 'jackson.mooring@gmail.com',
+		user: config.gmailUserName,
 		pass,
 	}
 });
@@ -16,9 +17,9 @@ for (let x in emails) {
 
 
 	const mailOptions = {
-		from: '"Jackson Mooring" <me@jacksonmooring.com>',
+		from: config.from,
 		to: emails[x],
-		subject: 'Sending Email using Node.js',
+		subject: config.subject,
 		html: `${fs.readFileSync('./index.html', 'utf-8')}`
 	};
 	transporter.sendMail(mailOptions, function (error, info) {
@@ -28,6 +29,4 @@ for (let x in emails) {
 			console.log('Email sent: ' + info.response);
 		}
 	});
-	y+=1
-	console.log(y)
 }
