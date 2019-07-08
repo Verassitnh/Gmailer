@@ -22,7 +22,7 @@ const mailOptions = {
   to: 'me@jacksonmooring@gmail.com',
   bcc: JSON.parse(getList()),
   subject: 'Sending Email using Node.js',
-  text: 'That was easy!'
+  html: `${fs.readFileSync('./index.html', 'utf-8')}`
 };
 
 transporter.sendMail(mailOptions, function(error, info){
