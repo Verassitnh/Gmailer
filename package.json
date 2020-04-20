@@ -1,22 +1,27 @@
 {
-  "name": "gmail-api",
-  "version": "1.1.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Gninoskcaj/Gmailer.git"
-  },
-  "author": "Jackson Mooring, @Gninoskcaj",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://docs.jacksonmooring.com/gmailer"
-  },
-  "homepage": "https://github.com/Gninoskcaj/Gmailer#readme",
-  "dependencies": {
-    "nodemailer": "^6.2.1"
-  }
+	"name": "gmail-api",
+	"version": "1.1.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "npm run lint:test",
+		"lint": "prettier --write \"./**\"",
+		"lint:test": "prettier --check \"./**\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Gninoskcaj/Gmailer.git"
+	},
+	"author": "Jackson Mooring, @Gninoskcaj",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://docs.jacksonmooring.com/gmailer"
+	},
+	"homepage": "https://github.com/Gninoskcaj/Gmailer#readme",
+	"dependencies": {
+		"nodemailer": "^6.2.1"
+	},
+	"devDependencies": {
+		"prettier": "^2.0.4"
+	}
 }
