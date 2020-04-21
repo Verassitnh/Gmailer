@@ -1,6 +1,6 @@
 # Gmailer
 
-> Interact with the Gmail API
+Send emails with ease
 
 ## API
 
